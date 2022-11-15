@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "447587377764",
+    "project_id": "fpolylibduan1",
+    "storage_bucket": "fpolylibduan1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447587377764:android:68949e82b3a9f2677ff571",
+        "android_client_info": {
+          "package_name": "com.example.ps21601.fpolylib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447587377764-o98bdfh5ppk3eounka6i0jnrbn7d4r0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ps21601.fpolylib",
+            "certificate_hash": "14435b076af4d5b183d6b6491118c93d8a25eecd"
+          }
+        },
+        {
+          "client_id": "447587377764-f8c5h0cbk20lk7g41uurthh6mifn53hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClwClurKZXYU-NV-IXHEtfOjDJjRDcfos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447587377764-f8c5h0cbk20lk7g41uurthh6mifn53hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
