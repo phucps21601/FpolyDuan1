@@ -1,5 +1,6 @@
 package com.example.ps21601.fpolylib;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -30,7 +31,7 @@ import com.example.ps21601.fpolylib.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout mDrawerLayout;
@@ -47,8 +48,8 @@ public class MainActivity extends AppCompatActivity  {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initUI();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this , mDrawerLayout, toolbar,
-                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -56,16 +57,32 @@ public class MainActivity extends AppCompatActivity  {
         mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_sign_out)
                 .setOpenableLayout(mDrawerLayout)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(mNavigationView, navController);
         showUserInfor();
+      //  onNavigationItemSelected();
+
+        mNavigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+                if(id == R.id.nav_sign_out){
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent =  new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
 
-    private void initUI(){
+    private void initUI() {
         mNavigationView = findViewById(R.id.nav_view);
         imgView = mNavigationView.getHeaderView(0).findViewById(R.id.imgNAV);
         tvName = mNavigationView.getHeaderView(0).findViewById(R.id.tvNAV_NAME);
@@ -73,19 +90,19 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    private void showUserInfor(){
+
+    private void showUserInfor() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user == null){
+        if (user == null) {
             return;
         }
         String name = user.getDisplayName();
         String email = user.getEmail();
         Uri photoUrl = user.getPhotoUrl();
 
-        if(name == null){
+        if (name == null) {
             tvName.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             tvName.setVisibility(View.VISIBLE);
         }
 
@@ -93,6 +110,8 @@ public class MainActivity extends AppCompatActivity  {
         tvEMAIL.setText(email);
         Glide.with(this).load(photoUrl).error(R.drawable.bg_button).into(imgView);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
