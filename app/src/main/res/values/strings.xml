@@ -8,7 +8,10 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_phieumuon">Quản lý phiếu mượn</string>
+    <string name="menu_thanhvien">Quản lý thành viên</string>
+    <string name="menu_xuatban">Quản lý nhà xuất bản</string>
     <string name="nav_sign_out">Đăng xuất</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
