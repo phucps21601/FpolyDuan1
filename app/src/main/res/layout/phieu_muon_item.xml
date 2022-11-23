@@ -23,13 +23,9 @@
             android:textSize="14dp"
             android:text="Người tạo"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:text="Tên sác"/>
+        <
 
-
+R
 
     </LinearLayout>
 
