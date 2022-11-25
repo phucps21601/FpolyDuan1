@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    
     <EditText
         android:id="@+id/edMaTV"
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
-
+    
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -69,6 +69,7 @@
             android:text="Cancle"
             android:layout_marginHorizontal="20dp"
             android:layout_weight="1"/>
+
 
     </LinearLayout>
 
