@@ -72,15 +72,19 @@
 
         <Button
             android:id="@+id/btnCan"
+            android:gravity="right"
+            android:background="null"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:text="cancle" />
-
 
         <Button
             android:id="@+id/btnOk"
+            android:background="null"
+            android:textColor="@color/black"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="48dp"
