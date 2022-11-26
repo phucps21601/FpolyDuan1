@@ -25,6 +25,10 @@
             android:icon="@drawable/ic_baseline_book"
             android:title="Quản lý sách"/>
         <item
+            android:id="@+id/tacgiaFragment"
+            android:icon="@drawable/ic_baseline_leaderboard"
+            android:title="Quản lí tác giả"/>
+        <item
             android:id="@+id/nav_ThongKe"
             android:icon="@drawable/ic_baseline_leaderboard"
             android:title="Thống kê"/>

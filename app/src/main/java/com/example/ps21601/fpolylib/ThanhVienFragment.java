@@ -37,7 +37,7 @@ public class ThanhVienFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnFloatingButton = view.findViewById(R.id.floatingButton);
+        btnFloatingButton = view.findViewById(R.id.floatingButtonThanhVien);
         btnFloatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:background="@android:color/holo_orange_dark"
+        android:background="#FF8800"
         android:text="Sửa Phiếu Mượn"
-        android:textColor="@color/black"
+        android:textColor="#131412"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -26,7 +28,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Mã phiếu mượn : "
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <TextView
@@ -35,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:text="1"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
     </LinearLayout>
@@ -52,7 +54,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Người tạo"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <EditText
@@ -63,7 +65,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#37000000"
             android:layout_marginEnd="20dp" />
     </LinearLayout>
 
@@ -79,7 +81,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Người mượn:"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <EditText
@@ -90,7 +92,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#37000000"
             android:layout_marginEnd="20dp" />
     </LinearLayout>
     <LinearLayout
@@ -105,7 +107,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Tên sách:"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <EditText
@@ -116,7 +118,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#37000000"
             android:layout_marginEnd="20dp" />
     </LinearLayout>
 
@@ -132,7 +134,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Giá Thuê:"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <EditText
@@ -143,7 +145,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#37000000"
             android:layout_marginEnd="20dp" />
     </LinearLayout>
     <LinearLayout
@@ -158,7 +160,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Ngày thuê: "
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <EditText
@@ -170,7 +172,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#37000000"
             android:layout_weight="2" />
 
         <ImageView
@@ -193,7 +195,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Ngày trả: "
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textSize="20dp" />
 
         <EditText
@@ -205,7 +207,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#37000000"
             android:layout_weight="2" />
 
         <ImageView
@@ -229,7 +231,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             android:text="Trả sách"
-            android:textColor="@color/black" />
+            android:textColor="#131412" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -237,28 +239,27 @@
 
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCan"
-            android:gravity="right"
-            android:background="null"
-            android:layout_width="match_parent"
+            android:background="@drawable/custom_button"
+            android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:textStyle="bold"
             android:text="cancle" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnOk"
-            android:background="null"
-            android:textColor="@color/black"
+            android:textColor="#131412"
             android:gravity="center"
-            android:layout_width="match_parent"
+            android:background="@drawable/custom_button"
+            android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="3"
             android:textStyle="bold"
-            android:text="Ok" />
+            android:text="OK" />
     </LinearLayout>
 </LinearLayout>

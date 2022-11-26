@@ -27,5 +27,10 @@
         android:name="com.example.ps21601.fpolylib.ThanhVienFragment"
         android:label="fragment_thanh_vien"
         tools:layout="@layout/fragment_thanh_vien" />
+    <fragment
+        android:id="@+id/tacgiaFragment"
+        android:name="com.example.ps21601.fpolylib.TacgiaFragment"
+        android:label="fragment_tacgia"
+        tools:layout="@layout/fragment_tacgia" />
 
 </navigation>
