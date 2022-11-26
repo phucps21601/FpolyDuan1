@@ -1,10 +1,11 @@
 package com.example.ps21601.fpolylib.model;
 
 public class SachModel {
-    private String ten_sach,namxb_sach,ten_loaisach,ten_NXB,ten_tacgia,hinh,id_sach;
+    private String ma_sach,ten_sach,namxb_sach,ten_loaisach,ten_NXB,ten_tacgia,hinh,id_sach;
 
-    public SachModel(String ten_sach, String namxb_sach, String ten_loaisach, String ten_NXB, String ten_tacgia, String hinh
+    public SachModel(String ma_sach,String ten_sach, String namxb_sach, String ten_loaisach, String ten_NXB, String ten_tacgia, String hinh
     ,String id_sach) {
+        this.ma_sach = ma_sach;
         this.ten_sach = ten_sach;
         this.namxb_sach = namxb_sach;
         this.ten_loaisach = ten_loaisach;
@@ -36,6 +37,14 @@ public class SachModel {
 
     public void setTen_loaisach(String ten_loaisach) {
         this.ten_loaisach = ten_loaisach;
+    }
+
+    public String getMa_sach() {
+        return ma_sach;
+    }
+
+    public void setMa_sach(String ma_sach) {
+        this.ma_sach = ma_sach;
     }
 
     public String getTen_NXB() {

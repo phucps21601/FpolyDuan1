@@ -1,14 +1,14 @@
 package com.example.ps21601.fpolylib.model;
 
 public class ThanhVienModel {
-    private String username,password,ngaysinh,email,diachi,id_thanhvien;
+    private String username,password,ngaysinh, ma_user,diachi,id_thanhvien;
 
-    public ThanhVienModel(String username, String password, String ngaysinh, String email, String diachi
-    ,String id_thanhvien) {
+    public ThanhVienModel(String username, String password, String ngaysinh, String ma_user, String diachi
+    , String id_thanhvien) {
         this.username = username;
         this.password = password;
         this.ngaysinh = ngaysinh;
-        this.email = email;
+        this.ma_user = ma_user;
         this.diachi = diachi;
         this.id_thanhvien = id_thanhvien;
     }
@@ -45,12 +45,12 @@ public class ThanhVienModel {
         this.ngaysinh = ngaysinh;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMa_user() {
+        return ma_user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMa_user(String ma_user) {
+        this.ma_user = ma_user;
     }
 
     public String getDiachi() {

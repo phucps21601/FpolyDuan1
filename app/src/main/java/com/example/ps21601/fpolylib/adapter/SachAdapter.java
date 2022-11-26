@@ -38,11 +38,12 @@ public class SachAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder{
-        final EditText txtTenSach,txtNamXB,txtTen_Loaisach,txtten_NXB,txtTen_Tacgia,txtHinh;
+        final EditText txtMaSach,txtTenSach,txtNamXB,txtTen_Loaisach,txtten_NXB,txtTen_Tacgia,txtHinh;
         final ImageButton btnEdit,btnDelete;
-        public ViewHolder(EditText txtTenSach,EditText txtNamXB,EditText txtTen_Loaisach,
+        public ViewHolder(EditText txtMa_sach,EditText txtTenSach,EditText txtNamXB,EditText txtTen_Loaisach,
                           EditText txtten_NXB,EditText txtTen_Tacgia,EditText txtHinh,ImageButton
                            btnEdit,ImageButton btnDelete){
+            this.txtMaSach = txtMa_sach;
             this.txtTenSach = txtTenSach;
             this.txtNamXB = txtNamXB;
             this.txtTen_Loaisach = txtTen_Loaisach;

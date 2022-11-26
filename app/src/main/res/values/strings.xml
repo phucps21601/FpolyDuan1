@@ -12,6 +12,6 @@
     <string name="menu_thanhvien">Quản lý thành viên</string>
     <string name="menu_xuatban">Quản lý nhà xuất bản</string>
     <string name="nav_sign_out">Đăng xuất</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
