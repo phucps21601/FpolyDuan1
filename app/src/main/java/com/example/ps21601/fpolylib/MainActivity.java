@@ -48,7 +48,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements AdapterClickEvent {
+public class MainActivity extends AppCompatActivity  {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout mDrawerLayout;
@@ -147,66 +147,8 @@ public class MainActivity extends AppCompatActivity implements AdapterClickEvent
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    @Override
-    public void onEditTacgiaClick(TacgiaModel tacgiaModel) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        LayoutInflater layoutInflater = this.getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.tac_gia_dialog, null);
-        builder.setView(view);
-        Dialog dialog = builder.create();
-        dialog.show();
-    }
 
 
-    @Override
-    public void onDeleteTacgiaClick(TacgiaModel tacgiaModel) {
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Xóa")
-                .setMessage("Xóa sẽ mất vĩnh viễn!!")
-                .setNegativeButton("Hủy",null)
-                .setPositiveButton("Dồng ý", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        db.collection("tacgia")
-                                .document(tacgiaModel.getMa_tacgia())
-                                .delete()
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        readData();
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-
-                                    }
-                                });
-                    }
-                }).show();
-    }
-    public void readData(){
-        db.collection("tacgia")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            ArrayList<TacgiaModel> list = new ArrayList<>();
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Map<String, Object> map = document.getData();
-                                String tenTacgia = map.get("ten_tacgia").toString();
-                                String maTacgia = map.get("ma_tacgia").toString();
-                                TacgiaModel tacgia = new TacgiaModel(maTacgia,tenTacgia);
-                                list.add(tacgia);
-                            }
-                            TacgiaAdapter tacgiaAdapter = new TacgiaAdapter(MainActivity.this,list);
-                            recyclerView.setAdapter(tacgiaAdapter);
-                        }
-
-                    }
-                });
-    }
 
 
 }

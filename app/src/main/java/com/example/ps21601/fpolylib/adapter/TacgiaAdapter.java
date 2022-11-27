@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ps21601.fpolylib.MainActivity;
@@ -27,11 +29,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder> {
@@ -64,15 +68,80 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
         holder.btnEditTacgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdapterClickEvent adapterClickEvent = (AdapterClickEvent) v.getContext();
-                adapterClickEvent.onEditTacgiaClick(tacgiaModel);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                LayoutInflater layoutInflater = ((Activity) context).getLayoutInflater();
+                View view = layoutInflater.inflate(R.layout.tac_gia_dialog, null);
+                builder.setView(view);
+                Dialog dialog = builder.create();
+                dialog.show();
+                EditText txtTenTacgia = view.findViewById(R.id.edtTenTacgia);
+                EditText txtMaTacgia = view.findViewById(R.id.edtMaTacgia);
+                Button btnOKupdateTacgia = view.findViewById(R.id.btnOkTacgia);
+                btnOKupdateTacgia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String tenTacgia = txtTenTacgia.getText().toString();
+                        String maTacgia = txtMaTacgia.getText().toString();
+                        Map<String, Object> item = new HashMap<>();
+                        item.put("ma_tacgia", maTacgia);
+                        item.put("ten_tacgia", tenTacgia);
+                            db.collection("tacgia")
+                                    .document(tacgiaModel.getTacgia_id())
+                                    .set(item)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+//                                    Toast.makeText(FirebaseActivity.this,"Cap nhat thanh cong",
+//                                            Toast.LENGTH_LONG).show();
+                                            txtMaTacgia.setText(maTacgia);
+                                            txtTenTacgia.setText(tenTacgia);
+                                            dialog.dismiss();
+                                            Intent outIntent = new Intent("reload");
+                                            outIntent.putExtra("result", Integer.parseInt("1"));
+                                            LocalBroadcastManager.getInstance(context).sendBroadcast(outIntent);
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+
+                                        }
+                                    });
+
+
+                    }
+                });
             }
         });
         holder.btnDeleteTacgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdapterClickEvent adapterClickEvent = (AdapterClickEvent) v.getContext();
-                adapterClickEvent.onDeleteTacgiaClick(tacgiaModel);
+                new AlertDialog.Builder(context)
+                        .setTitle("Xóa")
+                        .setMessage("Xóa sẽ mất vĩnh viễn!!")
+                        .setNegativeButton("Hủy",null)
+                        .setPositiveButton("Dồng ý", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                db.collection("tacgia")
+                                        .document(tacgiaModel.getTacgia_id())
+                                        .delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Intent outIntent = new Intent("reload");
+                                                outIntent.putExtra("result", Integer.parseInt("1"));
+                                                LocalBroadcastManager.getInstance(context).sendBroadcast(outIntent);
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                            }
+                                        });
+                            }
+                        }).show();
             }
         });
     }
