@@ -23,16 +23,22 @@ import com.example.ps21601.fpolylib.R;
 import com.example.ps21601.fpolylib.TacgiaFragment;
 import com.example.ps21601.fpolylib.model.SachModel;
 import com.example.ps21601.fpolylib.model.TacgiaModel;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder> {
     Context context;
     ArrayList<TacgiaModel> list;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    TacgiaAdapter tacgiaAdapter;
 
 
     public TacgiaAdapter(Context context, ArrayList<TacgiaModel> list) {
@@ -58,13 +64,15 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
         holder.btnEditTacgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AdapterClickEvent adapterClickEvent = (AdapterClickEvent) v.getContext();
+                adapterClickEvent.onEditTacgiaClick(tacgiaModel);
             }
         });
         holder.btnDeleteTacgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AdapterClickEvent adapterClickEvent = (AdapterClickEvent) v.getContext();
+                adapterClickEvent.onDeleteTacgiaClick(tacgiaModel);
             }
         });
     }
@@ -84,6 +92,7 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
          TextView txtMatacgia,txtTentacgia;
          ImageButton btnEditTacgia,btnDeleteTacgia;
             CardView cardView;
+        RecyclerView recyclerView;
         public ViewHolder(View view){
             super(view);
             txtMatacgia = view.findViewById(R.id.maTacgiaAdapter);
@@ -91,7 +100,10 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
             btnEditTacgia = view.findViewById(R.id.btnEditTacgia);
             btnDeleteTacgia = view.findViewById(R.id.btnDeleteTacgia);
             cardView = view.findViewById(R.id.cardviewTacgia);
+            recyclerView = view.findViewById(R.id.rcTacgiaFrag);
         }
     }
+
+
 
 }

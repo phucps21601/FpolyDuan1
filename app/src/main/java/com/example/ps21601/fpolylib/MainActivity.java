@@ -15,9 +15,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ps21601.fpolylib.adapter.AdapterClickEvent;
+import com.example.ps21601.fpolylib.adapter.TacgiaAdapter;
 import com.example.ps21601.fpolylib.model.TacgiaModel;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -33,18 +36,27 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
-public class MainActivity extends AppCompatActivity  {
+import java.util.ArrayList;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity implements AdapterClickEvent {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout mDrawerLayout;
     private ImageView imgView;
     private TextView tvName, tvEMAIL;
     private NavigationView mNavigationView;
+    RecyclerView recyclerView;
+
 
 
     @Override
@@ -135,7 +147,66 @@ public class MainActivity extends AppCompatActivity  {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    @Override
+    public void onEditTacgiaClick(TacgiaModel tacgiaModel) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        LayoutInflater layoutInflater = this.getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.tac_gia_dialog, null);
+        builder.setView(view);
+        Dialog dialog = builder.create();
+        dialog.show();
+    }
 
+
+    @Override
+    public void onDeleteTacgiaClick(TacgiaModel tacgiaModel) {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Xóa")
+                .setMessage("Xóa sẽ mất vĩnh viễn!!")
+                .setNegativeButton("Hủy",null)
+                .setPositiveButton("Dồng ý", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        db.collection("tacgia")
+                                .document(tacgiaModel.getMa_tacgia())
+                                .delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        readData();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+                    }
+                }).show();
+    }
+    public void readData(){
+        db.collection("tacgia")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            ArrayList<TacgiaModel> list = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Map<String, Object> map = document.getData();
+                                String tenTacgia = map.get("ten_tacgia").toString();
+                                String maTacgia = map.get("ma_tacgia").toString();
+                                TacgiaModel tacgia = new TacgiaModel(maTacgia,tenTacgia);
+                                list.add(tacgia);
+                            }
+                            TacgiaAdapter tacgiaAdapter = new TacgiaAdapter(MainActivity.this,list);
+                            recyclerView.setAdapter(tacgiaAdapter);
+                        }
+
+                    }
+                });
+    }
 
 
 }

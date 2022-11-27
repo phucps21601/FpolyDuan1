@@ -44,15 +44,16 @@ import java.util.Map;
  * Use the {@link TacgiaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TacgiaFragment extends Fragment implements AdapterClickEvent{
+public class TacgiaFragment extends Fragment {
     Context context;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FloatingActionButton btnFloatingButtonTacgia;
-    private RecyclerView recyclerView;
+    FloatingActionButton btnFloatingButtonTacgia;
+    RecyclerView recyclerView;
     private TacgiaModel tacgiaModel = null;
     private EditText txtTenTacgia,txtMaTacgia;
     ArrayList<TacgiaModel> list = new ArrayList<>();
     TacgiaAdapter tacgiaAdapter;
+    AdapterClickEvent adapterClickEvent;
 
     public static TacgiaFragment newInstance() {
         return new TacgiaFragment();
@@ -70,7 +71,8 @@ public class TacgiaFragment extends Fragment implements AdapterClickEvent{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         readData();
-        return inflater.inflate(R.layout.fragment_tacgia, container, false);
+        View view = inflater.inflate(R.layout.fragment_tacgia, container, false);
+        return  view;
 
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -160,7 +162,7 @@ public class TacgiaFragment extends Fragment implements AdapterClickEvent{
                 }
 
                 // Add a new document with a generated ID
-                db.collection("course")
+                db.collection("tacgia")
                         .add(item)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
@@ -202,7 +204,6 @@ public class TacgiaFragment extends Fragment implements AdapterClickEvent{
                                 String tenTacgia = map.get("ten_tacgia").toString();
                                 String maTacgia = map.get("ma_tacgia").toString();
                                 TacgiaModel tacgia = new TacgiaModel(maTacgia,tenTacgia);
-//                                tacgia.setMa_tacgia(document.getId());
                                 list.add(tacgia);
                             }
                             tacgiaAdapter = new TacgiaAdapter(getContext(),list);
@@ -212,38 +213,6 @@ public class TacgiaFragment extends Fragment implements AdapterClickEvent{
                     }
                 });
     }
-    @Override
-    public void onEditTacgiaClick(TacgiaModel tacgiaModel) {
 
-    }
-
-
-    @Override
-    public void onDeleteTacgiaClick(TacgiaModel tacgiaModel) {
-        new AlertDialog.Builder(context)
-                .setTitle("Xóa")
-                .setMessage("Xóa sẽ mất vĩnh viễn!!")
-                .setNegativeButton("Hủy",null)
-                .setPositiveButton("Dồng ý", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        db.collection("tacgia")
-                                .document(tacgiaModel.getMa_tacgia())
-                                .delete()
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        TacgiaFragment tacgiaFragment = new TacgiaFragment();
-                                        tacgiaFragment.readData();
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                    }
-                                });
-                    }
-                }).show();
-    }
 
 }
