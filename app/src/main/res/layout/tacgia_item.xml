@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="10"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Mã tác giả: "/>
+            <TextView
+                android:id="@+id/maTacgiaAdapter"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Tên tác giả: "/>
+            <TextView
+                android:id="@+id/tenTacgiaAdapter"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/btnEditTacgia"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_create"/>
+    <ImageButton
+        android:id="@+id/btnDeleteTacgia"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_delete"/>
+</LinearLayout>

@@ -25,12 +25,12 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Tên tác giả: "
+            android:text="Ma tác giả: "
             android:textColor="@color/black"
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/edTao"
+            android:id="@+id/edtMaTacgia"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="70dp"
@@ -43,14 +43,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Tên tác giả: "
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/edtTenTacgia"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:layout_marginEnd="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnCan"
-            android:gravity="right"
-            android:background="null"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCanTacgia"
+            android:background="@drawable/custom_button"
+            android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
@@ -58,12 +85,12 @@
             android:textStyle="bold"
             android:text="cancle" />
 
-        <Button
-            android:id="@+id/btnOk"
-            android:background="null"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOkTacgia"
+            android:background="@drawable/custom_button"
             android:textColor="@color/black"
             android:gravity="center"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="3"

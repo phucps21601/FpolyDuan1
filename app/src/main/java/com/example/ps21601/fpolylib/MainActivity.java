@@ -1,8 +1,12 @@
 package com.example.ps21601.fpolylib;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -10,8 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ps21601.fpolylib.adapter.AdapterClickEvent;
+import com.example.ps21601.fpolylib.model.TacgiaModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -24,9 +33,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements AdapterClickEvent {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout mDrawerLayout;
     private ImageView imgView;
@@ -79,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     private void initUI() {
         mNavigationView = findViewById(R.id.nav_view);
         imgView = mNavigationView.getHeaderView(0).findViewById(R.id.imgNAV);
-        tvName = mNavigationView.getHeaderView(0).findViewById(R.id.tvNAV_NAME);
+        tvName = mNavigationView.getHeaderView(0).findViewById(R.id.tvNAV_Name);
         tvEMAIL = mNavigationView.getHeaderView(0).findViewById(R.id.tvNAV_EMAIL);
     }
 
@@ -120,4 +130,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }
