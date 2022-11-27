@@ -1,13 +1,18 @@
 package com.example.ps21601.fpolylib;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,17 +44,24 @@ import java.util.Map;
  * Use the {@link TacgiaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TacgiaFragment extends Fragment {
+public class TacgiaFragment extends Fragment implements AdapterClickEvent{
+    Context context;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FloatingActionButton btnFloatingButtonTacgia;
-    private ListView lv;
+    private RecyclerView recyclerView;
     private TacgiaModel tacgiaModel = null;
     private EditText txtTenTacgia,txtMaTacgia;
+    ArrayList<TacgiaModel> list = new ArrayList<>();
+    TacgiaAdapter tacgiaAdapter;
+
+    public static TacgiaFragment newInstance() {
+        return new TacgiaFragment();
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        readData();
     }
 
 
@@ -57,12 +69,17 @@ public class TacgiaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        readData();
         return inflater.inflate(R.layout.fragment_tacgia, container, false);
 
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        lv = view.findViewById(R.id.lvTacgiaFrag);
+        recyclerView = view.findViewById(R.id.rcTacgiaFrag);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        tacgiaAdapter = new TacgiaAdapter(getContext(),list);
+        recyclerView.setAdapter(tacgiaAdapter);
         btnFloatingButtonTacgia = view.findViewById(R.id.floatingButtonTacgia);
         btnFloatingButtonTacgia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,8 +205,8 @@ public class TacgiaFragment extends Fragment {
 //                                tacgia.setMa_tacgia(document.getId());
                                 list.add(tacgia);
                             }
-                            TacgiaAdapter adapter = new TacgiaAdapter(list);
-                            lv.setAdapter(adapter);
+                            tacgiaAdapter = new TacgiaAdapter(getContext(),list);
+                            recyclerView.setAdapter(tacgiaAdapter);
                         }
 
                     }
@@ -197,19 +214,13 @@ public class TacgiaFragment extends Fragment {
     }
     @Override
     public void onEditTacgiaClick(TacgiaModel tacgiaModel) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        LayoutInflater layoutInflater = this.getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.tac_gia_dialog, null);
-        builder.setView(view);
-        Dialog dialog = builder.create();
-        dialog.show();
-//        txtMaTacgia.setText(tacgiaModel.getMa_tacgia());
-//        txtTenTacgia.setText(tacgiaModel.getTen_tacgia());
+
     }
+
 
     @Override
     public void onDeleteTacgiaClick(TacgiaModel tacgiaModel) {
-        new AlertDialog.Builder(getContext())
+        new AlertDialog.Builder(context)
                 .setTitle("Xóa")
                 .setMessage("Xóa sẽ mất vĩnh viễn!!")
                 .setNegativeButton("Hủy",null)

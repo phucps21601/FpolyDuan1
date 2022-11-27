@@ -1,7 +1,10 @@
 package com.example.ps21601.fpolylib.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,27 +14,64 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ps21601.fpolylib.MainActivity;
 import com.example.ps21601.fpolylib.R;
+import com.example.ps21601.fpolylib.TacgiaFragment;
 import com.example.ps21601.fpolylib.model.SachModel;
 import com.example.ps21601.fpolylib.model.TacgiaModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class TacgiaAdapter extends BaseAdapter {
-    private ArrayList<TacgiaModel> list;
+public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder> {
+    Context context;
+    ArrayList<TacgiaModel> list;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    public TacgiaAdapter(ArrayList<TacgiaModel> list) {
+
+    public TacgiaAdapter(Context context, ArrayList<TacgiaModel> list) {
+        this.context = context;
         this.list = list;
     }
 
+
+    @NonNull
     @Override
-    public int getCount() {
-        return this.list.size();
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View view = inflater.inflate(R.layout.tacgia_item, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public Object getItem(int position) {
-        return this.list.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        TacgiaModel tacgiaModel = list.get(position);
+        holder.txtMatacgia.setText(tacgiaModel.getMa_tacgia());
+        holder.txtTentacgia.setText(tacgiaModel.getTen_tacgia());
+        holder.btnEditTacgia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        holder.btnDeleteTacgia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
     }
 
     @Override
@@ -39,48 +79,19 @@ public class TacgiaAdapter extends BaseAdapter {
         return position;
     }
 
-    @Override
-    public View getView(int _i, View _view, ViewGroup _viewgroup) {
-        View view = _view;
-        if (view == null) {
-            view = View.inflate(_viewgroup.getContext(), R.layout.tacgia_item, null);
-            TextView txtTenTacgia = view.findViewById(R.id.tenTacgiaAdapter);
-            TextView txtMaTacgia = view.findViewById(R.id.maTacgiaAdapter);
-            ImageButton btnEditTacgia = view.findViewById(R.id.btnEditTacgia);
-            ImageButton btnDeleteTacgia = view.findViewById(R.id.btnDeleteTacgia);
-            ViewHolder holder = new ViewHolder(txtMaTacgia,txtTenTacgia,btnEditTacgia,btnDeleteTacgia);
-            view.setTag(holder);
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+         TextView txtMatacgia,txtTentacgia;
+         ImageButton btnEditTacgia,btnDeleteTacgia;
+            CardView cardView;
+        public ViewHolder(View view){
+            super(view);
+            txtMatacgia = view.findViewById(R.id.maTacgiaAdapter);
+            txtTentacgia = view.findViewById(R.id.tenTacgiaAdapter);
+            btnEditTacgia = view.findViewById(R.id.btnEditTacgia);
+            btnDeleteTacgia = view.findViewById(R.id.btnDeleteTacgia);
+            cardView = view.findViewById(R.id.cardviewTacgia);
         }
-        TacgiaModel tacgiaModel = (TacgiaModel) getItem(_i);
-        ViewHolder holder = (ViewHolder) view.getTag();
-        holder.txtMatacgia.setText(tacgiaModel.getMa_tacgia());
-        holder.txtTentacgia.setText(tacgiaModel.getTen_tacgia());
-        holder.btnEditTacgia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdapterClickEvent adapterClickEvent = (AdapterClickEvent) _viewgroup.getContext();
-                adapterClickEvent.onEditTacgiaClick(tacgiaModel);
-            }
-        });
-        holder.btnDeleteTacgia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdapterClickEvent adapterClickEvent = (AdapterClickEvent) _viewgroup.getContext();
-                adapterClickEvent.onEditTacgiaClick(tacgiaModel);
-            }
-        });
-        return view;
     }
 
-    public static class ViewHolder{
-        final TextView txtMatacgia,txtTentacgia;
-        final ImageButton btnEditTacgia,btnDeleteTacgia;
-        public ViewHolder(TextView txtMatacgia,TextView txtTentacgia,ImageButton
-                                  btnEditTacgia,ImageButton btnDeleteTacgia){
-            this.txtMatacgia = txtMatacgia;
-            this.txtTentacgia = txtTentacgia;
-            this.btnEditTacgia = btnEditTacgia;
-            this.btnDeleteTacgia = btnDeleteTacgia;
-        }
-    }
 }

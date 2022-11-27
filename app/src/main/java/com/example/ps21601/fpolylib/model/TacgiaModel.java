@@ -1,6 +1,8 @@
 package com.example.ps21601.fpolylib.model;
 
-public class TacgiaModel {
+import java.io.Serializable;
+
+public class TacgiaModel implements Serializable {
     private String ma_tacgia,ten_tacgia;
 
     public TacgiaModel(String ma_tacgia, String ten_tacgia) {

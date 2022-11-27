@@ -21,9 +21,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -35,7 +38,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity implements AdapterClickEvent {
+public class MainActivity extends AppCompatActivity  {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout mDrawerLayout;
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterClickEvent
         toggle.syncState();
 
 
-        mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+//        mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_phieumuon, R.id.nav_thanhvien,R.id.nav_sign_out)
@@ -84,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements AdapterClickEvent
                 return true;
             }
         });
+
+
     }
 
     private void initUI() {
@@ -130,5 +135,7 @@ public class MainActivity extends AppCompatActivity implements AdapterClickEvent
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 
 }
