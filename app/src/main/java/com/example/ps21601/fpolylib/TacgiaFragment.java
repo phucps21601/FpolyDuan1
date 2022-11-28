@@ -1,11 +1,9 @@
 package com.example.ps21601.fpolylib;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -23,10 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.ps21601.fpolylib.adapter.AdapterClickEvent;
 import com.example.ps21601.fpolylib.adapter.TacgiaAdapter;
 import com.example.ps21601.fpolylib.model.TacgiaModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,8 +51,8 @@ public class TacgiaFragment extends Fragment {
     RecyclerView recyclerView;
     private TacgiaModel tacgiaModel = null;
     private EditText txtTenTacgia, txtMaTacgia;
+    private TextView erMatacgia,erTentacgia;
     TacgiaAdapter tacgiaAdapter;
-    AdapterClickEvent adapterClickEvent;
     private ArrayList<TacgiaModel> list;
 
     public static TacgiaFragment newInstance() {
@@ -107,6 +103,8 @@ public class TacgiaFragment extends Fragment {
 
         txtTenTacgia = view.findViewById(R.id.edtTenTacgia);
         txtMaTacgia = view.findViewById(R.id.edtMaTacgia);
+        erMatacgia = view.findViewById(R.id.errorMatacgia);
+        erTentacgia = view.findViewById(R.id.errorTentacgia);
         Button btnOkTacgia = view.findViewById(R.id.btnOkTacgia);
         Button btnCanTacgia = view.findViewById(R.id.btnCanTacgia);
 
@@ -116,6 +114,7 @@ public class TacgiaFragment extends Fragment {
                 String tenTacgia = txtTenTacgia.getText().toString();
                 String maTacgia = txtMaTacgia.getText().toString();
                 // Create a new user with a first and last name
+                if(!maTacgia.isEmpty() || !tenTacgia.isEmpty()){
                 Map<String, Object> item = new HashMap<>();
                 item.put("ma_tacgia", maTacgia);
                 item.put("ten_tacgia", tenTacgia);
@@ -141,6 +140,12 @@ public class TacgiaFragment extends Fragment {
 
                 } else {
 
+                }} else if(maTacgia.length() < 4){
+                    erMatacgia.setText("Mã tác giả phải lớn hơn 4 kí tự");
+                }
+                else{
+                    erMatacgia.setText("Mã tác giả không được để trống");
+                    erTentacgia.setText("Tên tác giả không được để trống");
                 }
 
                 // Add a new document with a generated ID
@@ -197,30 +202,30 @@ public class TacgiaFragment extends Fragment {
                 });
     }
 
-    private void updateTacgia(){
-        Map<String, Object> item = new HashMap<>();
-        db.collection("tacgia")
-                .document(tacgiaModel.getTacgia_id())
-                .set(item)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-//                                    Toast.makeText(FirebaseActivity.this,"Cap nhat thanh cong",
-//                                            Toast.LENGTH_LONG).show();
-                        tacgiaModel = null;
-                        txtMaTacgia.setText(null);
-                        txtTenTacgia.setText(null);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-//                                    Toast.makeText(FirebaseActivity.this,"Cap nhat thanh cong",
-//                                            Toast.LENGTH_LONG).show();
-                        tacgiaModel = null;
-                    }
-                });
-    }
+//    private void updateTacgia(){
+//        Map<String, Object> item = new HashMap<>();
+//        db.collection("tacgia")
+//                .document(tacgiaModel.getTacgia_id())
+//                .set(item)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+////                                    Toast.makeText(FirebaseActivity.this,"Cap nhat thanh cong",
+////                                            Toast.LENGTH_LONG).show();
+//                        tacgiaModel = null;
+//                        txtMaTacgia.setText(null);
+//                        txtTenTacgia.setText(null);
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+////                                    Toast.makeText(FirebaseActivity.this,"Cap nhat thanh cong",
+////                                            Toast.LENGTH_LONG).show();
+//                        tacgiaModel = null;
+//                    }
+//                });
+//    }
 
     public void onResume() {
         super.onResume();
@@ -243,8 +248,8 @@ public class TacgiaFragment extends Fragment {
             Log.d(">>>>>>>>TAG", "onReceive: "+count);
             if (count != 0) {
 
-list.clear();
-readData();
+            list.clear();
+            readData();
             }
         }
     };

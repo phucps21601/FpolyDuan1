@@ -97,4 +97,24 @@
             android:textStyle="bold"
             android:text="Ok" />
     </LinearLayout>
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#a72b43"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:id="@+id/errorMatacgia"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="#a72b43"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:id="@+id/errorTentacgia"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>
