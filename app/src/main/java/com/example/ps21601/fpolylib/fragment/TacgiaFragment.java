@@ -1,4 +1,4 @@
-package com.example.ps21601.fpolylib;
+package com.example.ps21601.fpolylib.fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.ps21601.fpolylib.R;
 import com.example.ps21601.fpolylib.adapter.TacgiaAdapter;
 import com.example.ps21601.fpolylib.model.TacgiaModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -114,7 +115,7 @@ public class TacgiaFragment extends Fragment {
                 String tenTacgia = txtTenTacgia.getText().toString();
                 String maTacgia = txtMaTacgia.getText().toString();
                 // Create a new user with a first and last name
-                if(!maTacgia.isEmpty() || !tenTacgia.isEmpty()){
+                if(!maTacgia.isEmpty() && !tenTacgia.isEmpty()){
                 Map<String, Object> item = new HashMap<>();
                 item.put("ma_tacgia", maTacgia);
                 item.put("ten_tacgia", tenTacgia);
@@ -138,14 +139,18 @@ public class TacgiaFragment extends Fragment {
                                 }
                             });
 
-                } else {
-
-                }} else if(maTacgia.length() < 4){
-                    erMatacgia.setText("Mã tác giả phải lớn hơn 4 kí tự");
                 }
-                else{
-                    erMatacgia.setText("Mã tác giả không được để trống");
+                } else if(maTacgia.length() < 4){
+                    erMatacgia.setText("Mã tác giả phải lớn hơn 4 kí tự");
+                    erTentacgia.setText("");
+                }
+                else if(tenTacgia.isEmpty()){
                     erTentacgia.setText("Tên tác giả không được để trống");
+                    erMatacgia.setText("");
+                }
+                else if(maTacgia.isEmpty()){
+                    erMatacgia.setText("Mã tác giả không được để trống");
+                    erTentacgia.setText("");
                 }
 
                 // Add a new document with a generated ID
@@ -229,7 +234,7 @@ public class TacgiaFragment extends Fragment {
 
     public void onResume() {
         super.onResume();
-        IntentFilter loginFilter = new IntentFilter("reload");
+        IntentFilter loginFilter = new IntentFilter("reloadTacgia");
         LocalBroadcastManager.getInstance(getContext())
                 .registerReceiver(receiver, loginFilter);
     }

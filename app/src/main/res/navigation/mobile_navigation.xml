@@ -29,8 +29,13 @@
         tools:layout="@layout/fragment_thanh_vien" />
     <fragment
         android:id="@+id/tacgiaFragment"
-        android:name="com.example.ps21601.fpolylib.TacgiaFragment"
+        android:name="com.example.ps21601.fpolylib.fragment.TacgiaFragment"
         android:label="fragment_tacgia"
         tools:layout="@layout/fragment_tacgia" />
+    <fragment
+        android:id="@+id/NXBFragment"
+        android:name="com.example.ps21601.fpolylib.fragment.NXBFragment"
+        android:label="fragment_n_x_b"
+        tools:layout="@layout/fragment_n_x_b" />
 
 </navigation>

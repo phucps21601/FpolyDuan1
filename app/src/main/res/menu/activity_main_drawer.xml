@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_baseline_people"
             android:title="Quản lý thành viên" />
         <item
-            android:id="@+id/nav_xuatban"
+            android:id="@+id/NXBFragment"
             android:icon="@drawable/ic_baseline_person"
             android:title="Quản lý nhà xuất bản" />
         <item

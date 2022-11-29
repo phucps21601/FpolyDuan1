@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,19 +19,11 @@ import androidx.cardview.widget.CardView;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ps21601.fpolylib.MainActivity;
 import com.example.ps21601.fpolylib.R;
-import com.example.ps21601.fpolylib.TacgiaFragment;
-import com.example.ps21601.fpolylib.model.SachModel;
 import com.example.ps21601.fpolylib.model.TacgiaModel;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,7 +67,10 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
                 dialog.show();
                 EditText txtTenTacgia = view.findViewById(R.id.edtTenTacgia);
                 EditText txtMaTacgia = view.findViewById(R.id.edtMaTacgia);
+                TextView tiltleTacgia = view.findViewById(R.id.titleTacgia);
+                tiltleTacgia.setText("Cập nhật tác giả");
                 Button btnOKupdateTacgia = view.findViewById(R.id.btnOkTacgia);
+                Button btnCanupdateTacgia = view.findViewById(R.id.btnCanTacgia);
                 btnOKupdateTacgia.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -96,7 +90,7 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
                                             txtMaTacgia.setText(maTacgia);
                                             txtTenTacgia.setText(tenTacgia);
                                             dialog.dismiss();
-                                            Intent outIntent = new Intent("reload");
+                                            Intent outIntent = new Intent("reloadTacgia");
                                             outIntent.putExtra("result", Integer.parseInt("1"));
                                             LocalBroadcastManager.getInstance(context).sendBroadcast(outIntent);
                                         }
@@ -109,6 +103,12 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
                                     });
 
 
+                    }
+                });
+                btnCanupdateTacgia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
                     }
                 });
             }
@@ -129,7 +129,7 @@ public class TacgiaAdapter extends RecyclerView.Adapter<TacgiaAdapter.ViewHolder
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Intent outIntent = new Intent("reload");
+                                                Intent outIntent = new Intent("reloadTacgia");
                                                 outIntent.putExtra("result", Integer.parseInt("1"));
                                                 LocalBroadcastManager.getInstance(context).sendBroadcast(outIntent);
                                             }
