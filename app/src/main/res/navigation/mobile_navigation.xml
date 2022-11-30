@@ -37,5 +37,10 @@
         android:name="com.example.ps21601.fpolylib.fragment.NXBFragment"
         android:label="fragment_n_x_b"
         tools:layout="@layout/fragment_n_x_b" />
+    <fragment
+        android:id="@+id/nav_Book"
+        android:name="com.example.ps21601.fpolylib.LoaiSachFragment"
+        android:label="fragment_loai_sach"
+        tools:layout="@layout/fragment_loai_sach" />
 
 </navigation>
