@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="THÊM PHIẾU MƯỢN"
+            android:text="THÊM SÁCH"
             android:textSize="30dp"
             android:textStyle="bold"
             android:layout_gravity="center"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Người tạo"
+                android:text="Mã sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Người mượn"
+                android:text="Mã loại sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="47dp"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên sách"
+                android:text="Mã NXB"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="50dp"
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giá thuê"
+                android:text="Mã sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="46dp"
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ngày thuê"
+                android:text="Năm xuất bản"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="50dp"
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ngày trả"
+                android:text="Tên sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="40dp"
@@ -122,39 +122,23 @@
                 />
 
             <EditText
-                android:layout_width="130dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 android:background="@drawable/edit_text"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="5dp"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_calendar"
-                android:layout_gravity="right"
-                android:layout_marginTop="-45dp"
-                android:layout_marginRight="20dp"
                 />
 
             <EditText
-                android:layout_width="130dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 android:background="@drawable/edit_text"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="5dp"
                 />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_calendar"
-                android:layout_gravity="right"
-                android:layout_marginTop="-45dp"
-                android:layout_marginRight="20dp"
-                />
+
         </LinearLayout>
 
     </LinearLayout>

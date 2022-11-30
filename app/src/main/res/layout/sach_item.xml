@@ -25,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Mã phiếu mượn: "/>
+                    android:text="Mã Sách: "/>
                 <TextView
                     android:id="@+id/maTacgiaAdapter"
                     android:layout_width="250dp"
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Người tạo: "/>
+                    android:text="Mã loại sách: "/>
                 <TextView
                     android:id="@+id/tenTacgiaAdapter"
                     android:layout_width="250dp"
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Ngày tên sách: "/>
+                    android:text="Mã NXB: "/>
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Giá thuê: "/>
+                    android:text="Năm xuất bản: "/>
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -87,35 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Người mượn: "/>
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Ngày mượn: "/>
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Ngày trả: "/>
+                    android:text="Tên sách: "/>
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -135,13 +107,5 @@
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/ic_delete"/>
-
     </LinearLayout>
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Trả sách"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="20dp"/>
 </androidx.cardview.widget.CardView>
