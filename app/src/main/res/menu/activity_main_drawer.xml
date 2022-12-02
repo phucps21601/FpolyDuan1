@@ -18,7 +18,7 @@
             android:title="Quản lý thành viên" />
         <item
             android:id="@+id/NXBFragment"
-            android:icon="@drawable/ic_baseline_person"
+            android:icon="@drawable/ic_manage_accounts_24"
             android:title="Quản lý nhà xuất bản" />
         <item
             android:id="@+id/sachFragment"
@@ -26,7 +26,7 @@
             android:title="Quản lý sách"/>
         <item
             android:id="@+id/tacgiaFragment"
-            android:icon="@drawable/ic_baseline_leaderboard"
+            android:icon="@drawable/ic_baseline_person"
             android:title="Quản lý tác giả"/>
         <item
             android:id="@+id/loaiSachFragment"
