@@ -1,17 +1,17 @@
 package com.example.ps21601.fpolylib.model;
 
-public class SachModel {
-    private String ma_sach,ten_sach,namxb_sach,ten_loaisach,ten_NXB,ten_tacgia,hinh,id_sach;
+import java.io.Serializable;
 
-    public SachModel(String ma_sach,String ten_sach, String namxb_sach, String ten_loaisach, String ten_NXB, String ten_tacgia, String hinh
-    ,String id_sach) {
+public class SachModel implements Serializable {
+    private String ma_sach,ten_sach,namxb_sach,ten_loaisach,ten_NXB,ten_tacgia,id_sach;
+
+    public SachModel(String ma_sach,String ten_sach, String namxb_sach, String ten_loaisach, String ten_NXB, String ten_tacgia) {
         this.ma_sach = ma_sach;
         this.ten_sach = ten_sach;
         this.namxb_sach = namxb_sach;
         this.ten_loaisach = ten_loaisach;
         this.ten_NXB = ten_NXB;
         this.ten_tacgia = ten_tacgia;
-        this.hinh = hinh;
         this.id_sach = id_sach;
     }
 
@@ -71,11 +71,5 @@ public class SachModel {
         this.ten_tacgia = ten_tacgia;
     }
 
-    public String getHinh() {
-        return hinh;
-    }
 
-    public void setHinh(String hinh) {
-        this.hinh = hinh;
-    }
 }

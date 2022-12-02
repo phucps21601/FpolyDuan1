@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mã loại sách"
+                android:text="Tên sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="47dp"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mã NXB"
+                android:text="Tên loại sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="50dp"
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mã sách"
+                android:text="Tên tác giả"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginTop="46dp"
@@ -92,6 +92,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/edtMaSach"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"

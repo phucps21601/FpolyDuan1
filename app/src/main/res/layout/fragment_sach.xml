@@ -2,26 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/loaisachFragmentMain"
+    android:id="@+id/sachFragmentMain"
     android:layout_height="match_parent"
-    tools:context=".fragment.LoaiSachFragment">
+    tools:context=".fragment.SachFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcLoaiSachFrag"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoaiSachFragment"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcNXBFrag"
+        android:id="@+id/rcSachFrag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingButtonLoaiSach"
+        android:id="@+id/floatingButtonSach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
