@@ -7,6 +7,8 @@
     tools:context=".fragment.TacgiaFragment">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:padding="5dp"
+           android:layout_marginTop="50dp"
             android:id="@+id/rcTacgiaFrag"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

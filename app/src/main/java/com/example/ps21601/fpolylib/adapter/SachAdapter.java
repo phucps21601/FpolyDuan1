@@ -1,6 +1,7 @@
 package com.example.ps21601.fpolylib.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-import io.grpc.Context;
+
 
 public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> {
     Context context;
@@ -40,6 +41,13 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            SachModel sachModel = list.get(position);
+            holder.txtMaSach.setText(sachModel.getMa_sach());
+            holder.txtTenSach.setText(sachModel.getTen_sach());
+            holder.txtTenLoaiSach1.setText(sachModel.getTen_loaisach());
+            holder.txtTenTacgia1.setText(sachModel.getTen_tacgia());
+            holder.txtTenNXB1.setText(sachModel.getTen_NXB());
+            holder.txtnamXB.setText(sachModel.getNamxb_sach());
 
     }
 
