@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,12 +9,26 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcLoaiSachFrag"
+=======
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoaiSachFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcNXBFrag"
+>>>>>>> 2f16119c602f07fa7d61c1aee5881102a3f5082d
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+<<<<<<< HEAD
         android:id="@+id/floatingButtonLoaiSach"
+=======
+        android:id="@+id/floatingButtonNXB"
+>>>>>>> 2f16119c602f07fa7d61c1aee5881102a3f5082d
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -21,5 +36,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/ic_add" />
+<<<<<<< HEAD
 
 </RelativeLayout>
+=======
+</FrameLayout>
+>>>>>>> 2f16119c602f07fa7d61c1aee5881102a3f5082d

@@ -38,8 +38,13 @@
         android:label="fragment_n_x_b"
         tools:layout="@layout/fragment_n_x_b" />
     <fragment
+<<<<<<< HEAD
         android:id="@+id/loaiSachFragment"
         android:name="com.example.ps21601.fpolylib.fragment.LoaiSachFragment"
+=======
+        android:id="@+id/nav_Book"
+        android:name="com.example.ps21601.fpolylib.LoaiSachFragment"
+>>>>>>> 2f16119c602f07fa7d61c1aee5881102a3f5082d
         android:label="fragment_loai_sach"
         tools:layout="@layout/fragment_loai_sach" />
 
