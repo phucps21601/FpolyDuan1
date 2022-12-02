@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/cardviewThanhVien"
+    android:id="@+id/cardviewSach"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
@@ -27,7 +27,7 @@
                     android:textSize="16dp"
                     android:text="Mã Sách: "/>
                 <TextView
-                    android:id="@+id/maTacgiaAdapter"
+                    android:id="@+id/maSachAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -43,9 +43,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Mã loại sách: "/>
+                    android:text="Tên sách: "/>
                 <TextView
-                    android:id="@+id/tenTacgiaAdapter"
+                    android:id="@+id/tenSachAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -59,8 +59,39 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="Mã NXB: "/>
+                    android:text="Tên loại sách: "/>
                 <TextView
+                    android:id="@+id/tenLoaiSachAdapter1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Tên tác giả: "/>
+                <TextView
+                    android:id="@+id/tenTacgiaAdapter1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Tên NXB: "/>
+                <TextView
+                    android:id="@+id/tenNXBAdapter1"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -75,20 +106,7 @@
                     android:textSize="16dp"
                     android:text="Năm xuất bản: "/>
                 <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Tên sách: "/>
-                <TextView
+                    android:id="@+id/namXBAdapter1"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -96,13 +114,13 @@
 
         </LinearLayout>
         <ImageButton
-            android:id="@+id/btnEditTacgia"
+            android:id="@+id/btnEditSach"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/ic_create"/>
         <ImageButton
-            android:id="@+id/btnDeleteTacgia"
+            android:id="@+id/btnDeleteSach"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
