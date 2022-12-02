@@ -21,6 +21,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/txtMaLoaiSach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -47,6 +48,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/txtTenLoaiSach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -78,13 +80,13 @@
             android:textColor="#a72b43"
             android:textSize="15dp"
             android:layout_width="match_parent"
-            android:id="@+id/errorMatacgia"
+            android:id="@+id/errorMaLoaiSach"
             android:layout_height="wrap_content"/>
         <TextView
             android:textColor="#a72b43"
             android:textSize="15dp"
             android:layout_width="match_parent"
-            android:id="@+id/errorTentacgia"
+            android:id="@+id/errorTenLoaiSach"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -97,7 +99,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnCanTacgia"
+            android:id="@+id/btnCanLoaiSach"
             android:background="@drawable/custom_button"
             android:layout_width="200dp"
             android:layout_height="48dp"
@@ -105,10 +107,10 @@
             android:layout_weight="1"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:text="cancle" />
+            android:text="Cancle" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnOkTacgia"
+            android:id="@+id/btnOkLoaiSach"
             android:background="@drawable/custom_button"
             android:textColor="@color/black"
             android:gravity="center"

@@ -27,11 +27,16 @@
         <item
             android:id="@+id/tacgiaFragment"
             android:icon="@drawable/ic_baseline_leaderboard"
-            android:title="Quản lí tác giả"/>
+            android:title="Quản lý tác giả"/>
+        <item
+            android:id="@+id/loaiSachFragment"
+            android:icon="@drawable/ic_baseline_leaderboard"
+            android:title="Quản lý loại sách"/>
         <item
             android:id="@+id/nav_ThongKe"
             android:icon="@drawable/ic_baseline_leaderboard"
             android:title="Thống kê"/>
+
     </group>
     <item android:title="Account">
         <menu>

@@ -27,7 +27,7 @@
                     android:textSize="16dp"
                     android:text="Mã Loại Sách: "/>
                 <TextView
-                    android:id="@+id/maTacgiaAdapter"
+                    android:id="@+id/maLoaiSachAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -45,7 +45,7 @@
                     android:textSize="16dp"
                     android:text="Tên Loại Sách: "/>
                 <TextView
-                    android:id="@+id/tenTacgiaAdapter"
+                    android:id="@+id/tenLoaiSachAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -53,13 +53,13 @@
 
         </LinearLayout>
         <ImageButton
-            android:id="@+id/btnEditTacgia"
+            android:id="@+id/btnEditLoaiSach"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/ic_create"/>
         <ImageButton
-            android:id="@+id/btnDeleteTacgia"
+            android:id="@+id/btnDeleteLoaiSach"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
