@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/sachFragment"
         android:name="com.example.ps21601.fpolylib.fragment.SachFragment"
-        android:label="fragment_sach"
+        android:label="Quản lý sách"
         tools:layout="@layout/fragment_sach" />
 
 </navigation>

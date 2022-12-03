@@ -3,14 +3,20 @@ package com.example.ps21601.fpolylib.fragment;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ps21601.fpolylib.R;
 import com.example.ps21601.fpolylib.adapter.LoaiSachAdapter;
@@ -164,13 +171,14 @@ public class SachFragment extends Fragment {
                                     txtMaSach.setText(null);
                                     txtnamXB.setText(null);
                                     txtTenSach.setText(null);
+                                    Toast.makeText(view.getContext(),"Thêm thành công",Toast.LENGTH_LONG).show();
                                     dialog.dismiss();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-
+                                    Toast.makeText(view.getContext(),"Thêm thất bại",Toast.LENGTH_LONG).show();
                                 }
                             });
                 }
@@ -256,4 +264,31 @@ public class SachFragment extends Fragment {
                     }
                 });
     }
+
+    public void onResume() {
+        super.onResume();
+        IntentFilter loginFilter = new IntentFilter("reloadSach");
+        LocalBroadcastManager.getInstance(getContext())
+                .registerReceiver(receiver, loginFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(getContext())
+                .unregisterReceiver(receiver);
+    }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int count = intent.getIntExtra("resultsach", 0);
+            Log.d(">>>>>>>>TAG", "onReceive: " + count);
+            if (count != 0) {
+                list.clear();
+                readData();
+            }
+        };
+    };
+
 }

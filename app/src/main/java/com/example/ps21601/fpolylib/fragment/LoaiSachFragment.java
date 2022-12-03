@@ -209,8 +209,6 @@ public class LoaiSachFragment extends Fragment {
 
 
         };
-
-
     };
 }
 
