@@ -47,5 +47,9 @@
         android:name="com.example.ps21601.fpolylib.fragment.SachFragment"
         android:label="Quản lý sách"
         tools:layout="@layout/fragment_sach" />
+    <fragment
+        android:id="@+id/phieumuonFragment"
+        android:name="com.example.ps21601.fpolylib.fragment.PhieumuonFragment"
+        android:label="PhieumuonFragment" />
 
 </navigation>

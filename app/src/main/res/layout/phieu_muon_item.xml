@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/cardviewThanhVien"
+    android:id="@+id/cardviewPhieumuon"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
@@ -45,36 +45,7 @@
                     android:textSize="16dp"
                     android:text="Người tạo: "/>
                 <TextView
-                    android:id="@+id/ten1Adapter"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Ngày tên sách: "/>
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Giá thuê: "/>
-                <TextView
+                    android:id="@+id/tennguoitaoAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -89,6 +60,54 @@
                     android:textSize="16dp"
                     android:text="Người mượn: "/>
                 <TextView
+                    android:id="@+id/tenNguoiMuonAdapter"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Tên sách: "/>
+                <TextView
+                    android:id="@+id/tensachpmAdapter"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Giá sách: "/>
+                <TextView
+                    android:id="@+id/giasachAdapter"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Giá thuê: "/>
+                <TextView
+                    android:id="@+id/giathueAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -103,6 +122,7 @@
                     android:textSize="16dp"
                     android:text="Ngày mượn: "/>
                 <TextView
+                    android:id="@+id/ngaymuonAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
@@ -117,27 +137,17 @@
                     android:textSize="16dp"
                     android:text="Ngày trả: "/>
                 <TextView
+                    android:id="@+id/ngaytraAdapter"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="16dp" />
             </LinearLayout>
 
         </LinearLayout>
-        <ImageButton
-            android:id="@+id/btnEdi1tTacgia"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_create"/>
-        <ImageButton
-            android:id="@+id/btnDelet1eTacgia"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_delete"/>
 
     </LinearLayout>
-    <CheckBox
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/checkboxAdapter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"

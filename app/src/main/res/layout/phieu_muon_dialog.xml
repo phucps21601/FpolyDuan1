@@ -28,7 +28,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã phiếu mượn"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,12 +68,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giá thuê"
+                android:text="Giá sách"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:layout_marginTop="46dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginLeft="20dp"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,15 +84,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="20dp"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ngày trả"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="20dp"
-                />
+
         </LinearLayout>
 
         <LinearLayout
@@ -92,6 +93,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/edtmaPM"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -99,20 +101,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="5dp"
                 />
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="38dp"
-                android:background="@android:color/transparent"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="38dp"
-                android:background="@android:color/transparent"/>
-
             <EditText
+                android:id="@+id/edtTenNguoitao"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -122,7 +112,8 @@
                 />
 
             <EditText
-                android:layout_width="130dp"
+                android:id="@+id/edtTenNguoiMuon"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 android:background="@drawable/edit_text"
@@ -130,16 +121,24 @@
                 android:layout_marginLeft="5dp"
                 />
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/spnTenSach"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_calendar"
-                android:layout_gravity="right"
-                android:layout_marginTop="-45dp"
-                android:layout_marginRight="20dp"
-                />
+                android:layout_margin="38dp"
+                android:background="@android:color/transparent"/>
 
             <EditText
+                android:id="@+id/edtGiaSach"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:background="@drawable/edit_text"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                />
+            <TextView
+                android:id="@+id/tvNgayThue"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -147,7 +146,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="5dp"
                 />
+
             <ImageView
+                android:id="@+id/dialog_NgayThue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_calendar"
@@ -155,27 +156,29 @@
                 android:layout_marginTop="-45dp"
                 android:layout_marginRight="20dp"
                 />
+
+
         </LinearLayout>
 
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_login"
         android:text="CANCLE"
         android:textSize="20dp"
-        android:id="@+id/btnCancle"
+        android:id="@+id/btnCanclePhieumuon"
         android:layout_marginLeft="170dp"
         />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_login"
         android:text="Ok"
         android:textSize="20dp"
-        android:id="@+id/btnOk"
+        android:id="@+id/btnOkPhieumuon"
         android:layout_gravity="right"
         android:layout_marginTop="-48dp"
         />
