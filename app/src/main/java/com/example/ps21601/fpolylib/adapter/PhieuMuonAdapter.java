@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.service.autofill.CharSequenceTransformation;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,8 +28,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,34 +81,31 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
                 DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        calendar.set(i,i1,i2);
+                        calendar.set(i, i1, i2);
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                         holder.txtNgayTra.setText(simpleDateFormat.format(calendar.getTime()));
                         holder.txtNgayTra.setTextColor(3455);
-                        int ngaytra = Integer.parseInt(holder.txtNgayTra.getText().toString().substring(0,2));
-                        int ngaymuon = Integer.parseInt(holder.txtNgayMuon.getText().toString().substring(0,2));
+                        String ngaytra = holder.txtNgayTra.getText().toString();
+                        String ngaymuon = holder.txtNgayMuon.getText().toString();
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        LocalDate ngayTra = LocalDate.parse(ngaytra,formatter);
+                        LocalDate ngayMuon = LocalDate.parse(ngaymuon,formatter);
+                        long daysbetween = ChronoUnit.DAYS.between(ngayMuon,ngayTra);
+                        String day = String.valueOf(daysbetween);
                         float giathue;
-                        if(ngaymuon > ngaytra ){
-                            float tongngaymuon = ngaymuon - ngaytra;
-                            float giasach = Float.parseFloat(holder.txtGiaSach.getText().toString());
-                            giathue = giasach*tongngaymuon;
-                        }
-                        else{
-                            float tongngaymuon = ngaytra - ngaymuon;
-                            float giasach = Float.parseFloat(holder.txtGiaSach.getText().toString());
-                            giathue = giasach*tongngaymuon;
-                        }
+                        float tongngaymuon = Float.parseFloat(day);
+                        float giasach = Float.parseFloat(holder.txtGiaSach.getText().toString());
+                        giathue = giasach * tongngaymuon;
 
-                        Log.d(">>>>TAG","t"+giathue);
                         Map<String, Object> item = new HashMap<>();
                         item.put("ngaytra", simpleDateFormat.format(calendar.getTime()));
                         item.put("ma_phieumuon", holder.txtMaPM.getText().toString());
                         item.put("ten_nguoitao", holder.txtTenNguoiTao.getText().toString());
-                        item.put("ten_nguoimuon",holder.txtTenNguoiMuon.getText().toString());
-                        item.put("tensach_phieumuon",holder.txtTenSach.getText().toString());
-                        item.put("giasach_phieumuon",holder.txtGiaSach.getText().toString());
-                        item.put("ngaythue",holder.txtNgayMuon.getText().toString());
-                        item.put("giathue_phieumuon",giathue);
+                        item.put("ten_nguoimuon", holder.txtTenNguoiMuon.getText().toString());
+                        item.put("tensach_phieumuon", holder.txtTenSach.getText().toString());
+                        item.put("giasach_phieumuon", holder.txtGiaSach.getText().toString());
+                        item.put("ngaythue", holder.txtNgayMuon.getText().toString());
+                        item.put("giathue_phieumuon", giathue);
                         db.collection("phieumuon")
                                 .document(phieumuonModel.getId_PM())
                                 .set(item)
