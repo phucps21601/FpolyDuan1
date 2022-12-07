@@ -7,7 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#827e7c">
 
 
         <LinearLayout
@@ -57,12 +58,14 @@
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_create"/>
+            android:src="@drawable/ic_create"
+            android:background="#827e7c"/>
         <ImageButton
             android:id="@+id/btnDeleteLoaiSach"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_delete"/>
+            android:src="@drawable/ic_delete"
+            android:background="#827e7c"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

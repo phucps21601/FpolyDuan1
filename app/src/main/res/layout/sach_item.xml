@@ -117,11 +117,13 @@
         <ImageButton
             android:id="@+id/btnEditSach"
             android:layout_width="0dp"
+            android:background="#827e7c"
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/ic_create"/>
         <ImageButton
             android:id="@+id/btnDeleteSach"
+            android:background="#827e7c"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"

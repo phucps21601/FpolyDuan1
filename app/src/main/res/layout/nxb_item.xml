@@ -6,7 +6,8 @@
     android:layout_margin="8dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#827e7c">
 
 
         <LinearLayout
@@ -54,11 +55,13 @@
         <ImageButton
             android:id="@+id/btnEditNXB"
             android:layout_width="0dp"
+            android:background="#827e7c"
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/ic_create"/>
         <ImageButton
             android:id="@+id/btnDeleteNXB"
+            android:background="#827e7c"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="1"
