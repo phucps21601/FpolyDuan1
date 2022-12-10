@@ -33,7 +33,7 @@
             android:icon="@drawable/ic_baseline_leaderboard"
             android:title="Quản lý loại sách"/>
         <item
-            android:id="@+id/nav_ThongKe"
+            android:id="@+id/thongkeFragment"
             android:icon="@drawable/ic_baseline_leaderboard"
             android:title="Thống kê"/>
 

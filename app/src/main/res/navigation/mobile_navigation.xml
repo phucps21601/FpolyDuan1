@@ -51,5 +51,10 @@
         android:id="@+id/phieumuonFragment"
         android:name="com.example.ps21601.fpolylib.fragment.PhieumuonFragment"
         android:label="PhieumuonFragment" />
+    <fragment
+        android:id="@+id/thongkeFragment"
+        android:name="com.example.ps21601.fpolylib.fragment.ThongkeFragment"
+        android:label="fragment_thongke"
+        tools:layout="@layout/fragment_thongke" />
 
 </navigation>
