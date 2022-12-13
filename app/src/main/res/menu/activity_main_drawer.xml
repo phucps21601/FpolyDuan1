@@ -30,7 +30,7 @@
             android:title="Quản lý tác giả"/>
         <item
             android:id="@+id/loaiSachFragment"
-            android:icon="@drawable/ic_baseline_leaderboard"
+            android:icon="@drawable/qlls"
             android:title="Quản lý loại sách"/>
         <item
             android:id="@+id/thongkeFragment"
