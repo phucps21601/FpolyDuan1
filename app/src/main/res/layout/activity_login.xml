@@ -27,8 +27,15 @@
     <LinearLayout
         android:layout_width="290dp"
         android:layout_height="600dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="58dp"
         android:layout_marginLeft="57dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="71dp"
         android:alpha="0.8"
         android:background="@drawable/bg_button"
         android:orientation="vertical">
@@ -53,79 +60,79 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="User name"
-            android:textSize="25dp"
-            android:layout_marginLeft="10dp"/>
+            android:textSize="25dp" />
 
         <EditText
+            android:id="@+id/edtUserLogin"
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@drawable/edt_login"
             android:hint="Enter Your User name"
-            android:textAlignment="center"
-            android:id="@+id/edtUserLogin"/>
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="Password"
-            android:textSize="25dp"
-            android:layout_marginLeft="10dp"/>
+            android:textSize="25dp" />
 
         <EditText
+            android:id="@+id/edtPass"
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@drawable/edt_login"
             android:hint="Enter Your Password"
             android:inputType="textPassword"
-            android:textAlignment="center"
-            android:id="@+id/edtPass" />
+            android:textAlignment="center" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
                 android:layout_width="150dp"
                 android:layout_height="30dp"
-                android:text="Remember me ?"
-                />
+                android:text="Remember me ?" />
 
             <CheckedTextView
                 android:layout_width="120dp"
                 android:layout_height="20dp"
+                android:layout_marginLeft="12dp"
                 android:text="Forget Password ?"
-                android:textColor="#E86F00"
-                android:layout_marginLeft="12dp"/>
+                android:textColor="#E86F00" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
-                android:text="Đăng nhập"
-                android:textSize="13dp"
-                android:background="@drawable/btn_login"
                 android:layout_marginLeft="10dp"
-                />
+                android:background="@drawable/btn_login"
+                android:text="Đăng nhập"
+                android:textSize="13dp" />
 
             <Button
                 android:id="@+id/btnRegisLogin"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
-                android:text="Đăng ký"
-                android:textSize="13dp"
-                android:background="@drawable/btn_login"
                 android:layout_marginLeft="30dp"
-                />
+                android:background="@drawable/btn_login"
+                android:text="Đăng ký"
+                android:textSize="13dp" />
         </LinearLayout>
 
     </LinearLayout>
