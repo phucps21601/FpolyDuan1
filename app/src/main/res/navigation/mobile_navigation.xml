@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
+    android:label="Quản lý loại sách"
     app:startDestination="@+id/nav_home">
 
     <fragment
@@ -14,13 +15,13 @@
     <fragment
         android:id="@+id/nav_phieumuon"
         android:name="com.example.ps21601.fpolylib.ui.gallery.GalleryFragment"
-        android:label="@string/menu_phieumuon"
+        android:label="Quản lý phiếu mượn"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_sign_out"
         android:name="com.example.ps21601.fpolylib.ui.slideshow.SlideshowFragment"
-       android:label="Đăng xuất"
+        android:label="Đăng xuất"
         tools:layout="@layout/fragment_sign_out" />
     <fragment
         android:id="@+id/nav_thanhvien"
@@ -30,17 +31,17 @@
     <fragment
         android:id="@+id/tacgiaFragment"
         android:name="com.example.ps21601.fpolylib.fragment.TacgiaFragment"
-        android:label="fragment_tacgia"
+        android:label="Quản lý tác giả"
         tools:layout="@layout/fragment_tacgia" />
     <fragment
         android:id="@+id/NXBFragment"
         android:name="com.example.ps21601.fpolylib.fragment.NXBFragment"
-        android:label="fragment_n_x_b"
+        android:label="Quản lý NXB"
         tools:layout="@layout/fragment_n_x_b" />
     <fragment
         android:id="@+id/loaiSachFragment"
         android:name="com.example.ps21601.fpolylib.fragment.LoaiSachFragment"
-        android:label="fragment_loai_sach"
+        android:label="Quản lý loại sách"
         tools:layout="@layout/fragment_loai_sach" />
     <fragment
         android:id="@+id/sachFragment"
@@ -50,11 +51,11 @@
     <fragment
         android:id="@+id/phieumuonFragment"
         android:name="com.example.ps21601.fpolylib.fragment.PhieumuonFragment"
-        android:label="PhieumuonFragment" />
+        android:label="Quản lý phiếu mượn" />
     <fragment
         android:id="@+id/thongkeFragment"
         android:name="com.example.ps21601.fpolylib.fragment.ThongkeFragment"
-        android:label="fragment_thongke"
+        android:label="Thống kê"
         tools:layout="@layout/fragment_thongke" />
 
 </navigation>

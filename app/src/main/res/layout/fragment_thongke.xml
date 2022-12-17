@@ -41,9 +41,12 @@
             android:textSize="25dp" />
 
         <TextView
+            android:layout_marginLeft="20dp"
+            android:padding="5dp"
+            android:layout_marginTop="350dp"
             android:id="@+id/thongkefrag"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25dp"
             />
